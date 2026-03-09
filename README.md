@@ -1,16 +1,91 @@
-# React + Vite
+# 🏫 Hostel Leave Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <img src="https://images.unsplash.com/photo-1562774053-701939374585" width="100%" height="250"/>
+</p>
 
-Currently, two official plugins are available:
+A web-based system designed to simplify hostel leave management for students and hostel authorities.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+# 👥 User Roles in the System
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The application provides **three different login roles**, each with specific functionalities.
 
-## Expanding the ESLint configuration
+## 👨‍🎓 Student Login
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Students can access the system to manage their leave applications and hostel information.
+
+### Features
+
+* Apply for hostel leave
+* View mess menu
+* Track leave request status
+* Receive notifications when leave is approved or rejected
+* View previously applied leave history
+
+---
+
+## 👨‍💼 Manager Login
+
+The manager acts as the **intermediate authority** who reviews student leave requests.
+
+### Features
+
+* View all leave applications submitted by students
+* Verify leave details
+* Forward requests for admin approval
+* Monitor leave records
+
+---
+
+## 🛠️ Admin Login
+
+The admin (warden or hostel authority) has **full control over the system**.
+
+### Features
+
+* Approve or reject leave requests
+* Manage students and hostel records
+* Monitor overall leave activity
+* Oversee hostel operations
+
+---
+
+# 🔄 System Workflow
+
+1. Student logs into the system.
+2. Student applies for leave.
+3. The leave request is sent to the **Manager**.
+4. The Manager reviews the request.
+5. The request is forwarded to the **Admin**.
+6. Admin approves or rejects the leave.
+7. The result is sent back to the **Student as an alert/notification**.
+
+---
+
+# 🧰 Tech Stack
+
+Frontend
+
+* HTML
+* CSS
+* JavaScript
+* Vite
+
+Backend
+
+* Node.js
+* Express.js
+
+Database
+
+* Supabase
+
+---
+
+# 📂 Project Structure
+
+backend – Handles API and business logic
+frontend – User interface for students, managers, and admins
+Supabase – Cloud database for storing leave records
