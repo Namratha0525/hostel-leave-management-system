@@ -1,0 +1,142 @@
+/* PageHeader — layout and action buttons
+   - Title left-aligned, Back/Home buttons positioned top-right
+   - Responsive: buttons inline on mobile; accessible focus styles
+*/
+
+.page-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  width: 100%;
+  max-width: 1200px; /* expanded to match wide calendar cards */
+  margin: 0 auto 20px;
+  z-index: 5;
+}
+
+.page-header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-900);
+}
+
+/* Nav buttons: align to the right end using flex ordering */
+.page-header h2 { flex: 1 1 auto; }
+
+/* Compact header buttons */
+.page-header .nav-btn {
+  position: static;
+  order: 2;
+  margin-left: 10px;
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 6px 8px; /* compact */
+  border-radius: 6px;
+  color: var(--text-700);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.12s ease, box-shadow 0.12s ease;
+  min-width: 48px;
+}
+
+/* Hide Back button globally on all pages */
+.page-header .nav-btn:first-of-type { display: none !important; }
+
+/* Hide Home button globally on all pages */
+.page-header .nav-btn:last-of-type { display: none !important; }
+
+/* Show Home button in header top-right */
+.page-header .nav-btn:last-of-type {
+  display: inline-block;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 8px;
+}
+
+/* Back button: anchored at bottom-right of the main content area (.content) */
+.content .page-header .nav-btn:first-of-type {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  margin-left: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  min-width: 120px;
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+  z-index: 9999;
+  color: var(--text-700);
+}
+
+.page-header .nav-btn:hover { background: var(--muted); color: var(--text-900); transform: translateY(-1px); }
+.page-header .nav-btn:focus { outline: none; box-shadow: 0 0 0 4px rgba(51,94,247,0.12); }
+
+/* Responsive: revert Back button to inline placement on small screens */
+@media (max-width: 880px) {
+  .content .page-header .nav-btn:first-of-type { position: static; transform: none; margin-left: 8px; min-width: 48px; border-radius: 6px; box-shadow: none; }
+}
+
+/* Responsive: revert Back button to inline placement on small screens */
+@media (max-width: 880px) {
+  .page-header { padding: 10px 12px; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .page-header h2 { order: 1; width: 100%; font-size: 18px; }
+  .page-header .nav-btn { position: static; transform: none; margin-left: 8px; order: 2; }
+  .page-header .nav-btn:first-of-type { order: 2; min-width: 48px; border-radius: 6px; box-shadow: none; }
+}
+/* Page-specific tweaks for Student Calendar: Small Back button anchored bottom-right, hide Home */
+.calendar-page .page-header .nav-btn:last-of-type { display: none; }
+.calendar-page .page-header .nav-btn:first-of-type {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  min-width: 40px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-size: 13px;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+.calendar-page .page-header .nav-btn:first-of-type span, .calendar-page .page-header .nav-btn:first-of-type i { display: none; }
+
+
+/* =========================
+   LEFT NAV LINKS (HOME, LOGIN)
+========================= */
+.nav-links a,
+.sidebar a,
+header a {
+  color: #1f2937;          /* Dark slate */
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  margin: 8px 0;
+  display: block;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+/* Hover effect */
+.nav-links a:hover,
+.sidebar a:hover,
+header a:hover {
+  color: #4f46e5;          /* Indigo */
+  transform: translateX(4px);
+}
+
+/* Active page */
+.nav-links a.active,
+.sidebar a.active {
+  color: #1e40af;
+  font-weight: 700;
+}
+.nav-links a,
+.sidebar a {
+  color: #111827;   /* Almost black */
+  font-weight: 600;
+}

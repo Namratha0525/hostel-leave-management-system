@@ -1,0 +1,186 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+body {
+  background-color: #eed2b6; /* off-white */
+  color: #d8ccbd;
+}
+/* =========================
+   MAIN LAYOUT
+========================= */
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+/* =========================
+   LEFT SIDEBAR
+========================= */
+.sidebar {
+  width: 220px;
+  background: linear-gradient(180deg, #330583, #1a0141);
+  color: white;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.sidebar h1 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.sidebar a {
+  color: #f0dfd0;
+  text-decoration: none;
+  font-size: 15px;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar a:hover {
+  opacity: 0.85;
+}
+/* =========================
+   MAIN CONTENT AREA
+========================= */
+.main-content {
+  flex: 1;
+  position: relative;
+  background-color: #fcfbfa;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+/* =========================
+   RIGHT IMAGE (HALF CIRCLE)
+========================= */
+.auth-bg::after {
+  content: "";
+  position: fixed;
+  right: -150px; /* pushes circle outside screen */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 800px;
+  height: 800px;
+  background-image: url("/src/assets/auth-illustration.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  opacity: 0.95;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* =========================
+   CONTENT WRAPPER
+========================= */
+.auth-content {
+  position: relative;
+  z-index: 2;
+  padding-left: 60px;
+}
+
+/* =========================
+   CARD
+========================= */
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px 36px;
+  width: 360px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0);
+}
+
+.card h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+/* =========================
+   INPUTS
+========================= */
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #7c3aed;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #7c3aed;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #6d28d9;
+}
+
+button + button {
+  margin-top: 12px;
+}
+
+/* =========================
+   LINKS
+========================= */
+.card p {
+  font-size: 14px;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.card span {
+  color: #7c3aed;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.card span:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 70px;
+    padding: 16px;
+  }
+
+  .sidebar h1 {
+    display: none;
+  }
+
+  .auth-bg::after {
+    display: none; /* hide image on mobile */
+  }
+
+  .auth-content {
+    padding-left: 20px;
+  }
+}
